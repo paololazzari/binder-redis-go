@@ -6,6 +6,7 @@ WORKDIR ${HOME}/gonb
 RUN go get github.com/redis/go-redis/v9 && \
     apt-get update -y && apt-get install redis-server -y 
 
+WORKDIR ${NOTEBOOKS}
 ADD entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
