@@ -9,4 +9,4 @@ RUN go get github.com/redis/go-redis/v9 && \
 ADD entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
+ENTRYPOINT ["tini", "-g", "--", "/usr/local/bin/entrypoint.sh"]
